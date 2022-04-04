@@ -1,2 +1,3 @@
 # Bank-Account-Assignment
-aaaaaaaaaa
+Very basic personal banking application
+
