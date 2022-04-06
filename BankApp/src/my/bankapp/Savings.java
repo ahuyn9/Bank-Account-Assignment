@@ -20,4 +20,8 @@ public class Savings {
         return savBal;
     }
     
+    public double addFunds(double amount){
+        return savBal + amount;
+    }
+    
 }
