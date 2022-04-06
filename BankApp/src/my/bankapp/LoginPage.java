@@ -1,3 +1,4 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -8,8 +9,12 @@ package my.bankapp;
  *
  * @author ahuyn9
  */
-public class LoginPage extends javax.swing.JFrame {
+import javax.swing.*;
+import javax.swing.JOptionPane;
 
+public class LoginPage extends javax.swing.JFrame {
+    private String accNo;
+    private String pin;
     /**
      * Creates new form LoginPage
      */
@@ -32,8 +37,8 @@ public class LoginPage extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        accNoText = new javax.swing.JTextField();
+        pinText = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
 
         jTextField1.setText("jTextField1");
@@ -50,14 +55,17 @@ public class LoginPage extends javax.swing.JFrame {
 
         jLabel3.setText("Pin number:");
 
-        jTextField2.setText("jTextField2");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        accNoText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                accNoTextActionPerformed(evt);
             }
         });
 
-        jPasswordField1.setText("jPasswordField1");
+        pinText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pinTextActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Login");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -77,11 +85,12 @@ public class LoginPage extends javax.swing.JFrame {
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField2)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                    .addComponent(accNoText)
+                    .addComponent(pinText, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(32, 32, 32)
-                        .addComponent(jButton1)))
+                        .addComponent(jButton1)
+                        .addGap(19, 19, 19)))
                 .addContainerGap(106, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -90,11 +99,11 @@ public class LoginPage extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(accNoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pinText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(32, 32, 32))
@@ -139,13 +148,27 @@ public class LoginPage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void accNoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accNoTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_accNoTextActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        String pin = pinText.getText();
+        String accNo = accNoText.getText();
+        if(accNo.contains("1234567") && pin.contains("1234")){
+            MainPage mp = new MainPage();
+            mp.setVisible(true);
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Invalid Login Details", "Login Error", JOptionPane.ERROR_MESSAGE);
+            pinText.setText(null);
+            accNoText.setText(null);        }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void pinTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pinTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pinTextActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,14 +206,14 @@ public class LoginPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField accNoText;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JPasswordField pinText;
     // End of variables declaration//GEN-END:variables
 }
