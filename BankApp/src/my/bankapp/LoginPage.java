@@ -180,6 +180,7 @@ public class LoginPage extends javax.swing.JFrame {
                 new LoginPage().setVisible(true);
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
