@@ -12,12 +12,16 @@ public class Chequing {
     protected double cheqBal = 0;
     
     public double checkBalance(){
-        return cheqBal;
+        return this.cheqBal;
     }
     
-    public void addFunds(double amount){
+    public void setBalance(double amount){
+        this.cheqBal = amount;
+    }
+    
+    public double addFunds(double amount){
         System.out.println("Added Funds");
-        this.cheqBal += amount;
+        return this.cheqBal += amount;
     }
     
     public void removeFunds(double amount){
