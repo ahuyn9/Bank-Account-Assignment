@@ -9,14 +9,17 @@ package my.bankapp;
  * @author mdoan3
  */
 public class Deposit extends javax.swing.JFrame {
-
+    Chequing cq = new Chequing();
+    Savings sv = new Savings();
+    
+    private String selectedAccStr;
     /**
      * Creates new form Deposit
      */
     public Deposit() {
         initComponents();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -185,8 +188,22 @@ public class Deposit extends javax.swing.JFrame {
         
         Object selectedAccount = jComboBox1.getSelectedItem();
         if(selectedAccount != null){
-            String selectedAccStr = selectedAccount.toString();
+            this.selectedAccStr = selectedAccount.toString();
         }
+        
+        switch (selectedAccStr){
+            case "Chequing":
+                cq.addFunds(amount);
+                break;
+            case "Savings":
+                sv.addFunds(amount);
+                break;
+            default:
+                System.out.println("Invalid Account Selected");
+                break;
+        }
+        
+        super.dispose(); 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
