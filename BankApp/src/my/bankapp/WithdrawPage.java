@@ -8,6 +8,10 @@ package my.bankapp;
  *
  * @author ahuyn9
  */
+
+import javax.swing.*;
+import javax.swing.JOptionPane;
+
 public class WithdrawPage extends javax.swing.JFrame {
     Chequing cq = new Chequing();
     Savings sv = new Savings();
@@ -238,8 +242,22 @@ public class WithdrawPage extends javax.swing.JFrame {
         }
         
         if(sourceAccStr.contains("Checquing")){
-            cq.addFunds(amount);
-                break;
+            if(targetAccStr.contains("Savings")){
+                cq.removeFunds(amount);
+                sv.addFunds(amount);
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Invalid Target Account selected.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        if(sourceAccStr.contains("Savings")){
+            if(targetAccStr.contains("Chequing")){
+                sv.removeFunds(amount);
+                cq.addFunds(amount);
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Invalid Target Account selected.", "Error", JOptionPane.ERROR_MESSAGE);
+            } 
+        }
         }
 
         
