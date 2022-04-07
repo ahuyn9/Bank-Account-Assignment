@@ -19,6 +19,7 @@ public class MainPage extends javax.swing.JFrame {
         initComponents();
         jTextField1.setText(String.valueOf(cq.checkBalance()));
         
+        
     }
 
     /**
@@ -159,6 +160,7 @@ public class MainPage extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         new Deposit().setVisible(true);
+        super.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -178,7 +180,11 @@ public class MainPage extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
-
+    public void setTextField(){
+        System.out.println("Clearing text field");
+        jTextField1.setText(null);
+        jTextField1.setText(String.valueOf(cq.checkBalance()));
+    }
     /**
      * @param args the command line arguments
      */

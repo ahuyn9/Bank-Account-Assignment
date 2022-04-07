@@ -11,6 +11,7 @@ package my.bankapp;
 public class Deposit extends javax.swing.JFrame {
     Chequing cq = new Chequing();
     Savings sv = new Savings();
+    MainPage mp = new MainPage();
     
     private String selectedAccStr;
     /**
@@ -194,6 +195,7 @@ public class Deposit extends javax.swing.JFrame {
         switch (selectedAccStr){
             case "Chequing":
                 cq.addFunds(amount);
+                System.out.println("Chequing");
                 break;
             case "Savings":
                 sv.addFunds(amount);
@@ -202,6 +204,9 @@ public class Deposit extends javax.swing.JFrame {
                 System.out.println("Invalid Account Selected");
                 break;
         }
+        mp.setTextField();
+        System.out.println(cq.checkBalance());
+        
         
         super.dispose(); 
     }//GEN-LAST:event_jButton1ActionPerformed

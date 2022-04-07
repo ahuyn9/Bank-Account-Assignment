@@ -15,11 +15,13 @@ public class Chequing {
         return cheqBal;
     }
     
-    public double addFunds(double amount){
-        return cheqBal + amount;
+    public void addFunds(double amount){
+        System.out.println("Added Funds");
+        this.cheqBal += amount;
     }
     
-    public double removeFunds(double amount){
-        return cheqBal - amount;
+    public void removeFunds(double amount){
+        System.out.println("Removed Funds");
+        this.cheqBal -= amount;
     }
 }
