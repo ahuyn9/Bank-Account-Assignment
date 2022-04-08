@@ -241,10 +241,12 @@ public class WithdrawPage extends javax.swing.JFrame {
             this.targetAccStr = targetAccount.toString();
         }
         
-        if(sourceAccStr.contains("Checquing")){
+        if(sourceAccStr.contains("Chequing")){
             if(targetAccStr.contains("Savings")){
                 cq.removeFunds(amount);
                 sv.addFunds(amount);
+                MainPage mp = new MainPage();
+                mp.setVisible(true);
             }
             else{
                 JOptionPane.showMessageDialog(null, "Invalid Target Account selected.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -253,6 +255,8 @@ public class WithdrawPage extends javax.swing.JFrame {
             if(targetAccStr.contains("Chequing")){
                 sv.removeFunds(amount);
                 cq.addFunds(amount);
+                MainPage mp = new MainPage();
+                mp.setVisible(true);
             }
             else{
                 JOptionPane.showMessageDialog(null, "Invalid Target Account selected.", "Error", JOptionPane.ERROR_MESSAGE);
