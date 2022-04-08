@@ -249,7 +249,7 @@ public class WithdrawPage extends javax.swing.JFrame {
                 mp.setVisible(true);
             }
             else{
-                JOptionPane.showMessageDialog(null, "Invalid Target Account selected.", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Invalid Target Account selected.", "Target Account Error", JOptionPane.ERROR_MESSAGE);
             }
         if(sourceAccStr.contains("Savings")){
             if(targetAccStr.contains("Chequing")){
@@ -259,7 +259,7 @@ public class WithdrawPage extends javax.swing.JFrame {
                 mp.setVisible(true);
             }
             else{
-                JOptionPane.showMessageDialog(null, "Invalid Target Account selected.", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Invalid Target Account selected.", "Target Account Error", JOptionPane.ERROR_MESSAGE);
             } 
         }
         }
