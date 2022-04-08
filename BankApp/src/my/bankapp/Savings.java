@@ -23,5 +23,8 @@ public class Savings {
     public double addFunds(double amount){
         return savBal + amount;
     }
+    public double removeFunds(double amount){
+        return savBal - amount;
+    }
     
 }
