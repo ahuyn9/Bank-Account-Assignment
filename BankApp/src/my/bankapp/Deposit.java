@@ -207,8 +207,8 @@ public class Deposit extends javax.swing.JFrame {
                 break;
         }
         
-        cq.setBalance(amt);
-        mp.setTextField();
+        //cq.setBalance(amt);
+        mp.setTextField(amt);
         //System.out.println(cq.checkBalance());
         
         

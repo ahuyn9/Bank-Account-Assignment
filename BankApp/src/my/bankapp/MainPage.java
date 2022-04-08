@@ -1,8 +1,10 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+ */    
 package my.bankapp;
+
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -17,7 +19,7 @@ public class MainPage extends javax.swing.JFrame {
     
     public MainPage() {
         initComponents();
-        jTextField1.setText(String.valueOf(cq.checkBalance()));
+        jTextField1.setText("no u");
     }
 
     /**
@@ -75,7 +77,6 @@ public class MainPage extends javax.swing.JFrame {
 
         jButton5.setText("Back");
 
-        jTextField1.setEditable(false);
         jTextField1.setText("jTextField1");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,9 +99,7 @@ public class MainPage extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(16, 296, Short.MAX_VALUE)
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -110,23 +109,24 @@ public class MainPage extends javax.swing.JFrame {
                         .addGap(29, 29, 29)
                         .addComponent(jButton4)
                         .addGap(30, 30, 30))))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(190, 190, 190)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jButton5)))
-                        .addGap(81, 81, 81))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton5)))
+                .addGap(5, 5, 5)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
@@ -178,11 +178,13 @@ public class MainPage extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
-    public void setTextField(){
+    
+    public void setTextField(double amount){
         System.out.println("Clearing text field");
-        jTextField1.setText(null);
-        jTextField1.setText(String.valueOf(cq.checkBalance()));
-        System.out.println(String.valueOf(cq.checkBalance()));
+        System.out.println(amount);
+        
+        jTextField1.setText("Bruh");
+        SwingUtilities.updateComponentTreeUI(MainPage.this);
     }
     /**
      * @param args the command line arguments
