@@ -240,7 +240,12 @@ public class WithdrawPage extends javax.swing.JFrame {
         if (targetAccount != null) {
             this.targetAccStr = targetAccount.toString();
         }
-        MainPage mp = new MainPage();
+        
+        //check if amount is empty
+        if(jTextField3.getText().isEmpty()){
+  JOptionPane.showMessageDialog(null, "Amount must not be empty.", "Empty String Error", JOptionPane.WARNING_MESSAGE);
+}
+
         if(sourceAccStr.contains("Chequing")){
             if(targetAccStr.contains("Savings")){
                 cq.removeFunds(amount);
