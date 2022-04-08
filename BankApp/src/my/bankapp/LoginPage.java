@@ -156,7 +156,19 @@ public class LoginPage extends javax.swing.JFrame {
         // TODO add your handling code here:
         String pin = pinText.getText();
         String accNo = accNoText.getText();
-        if(accNo.contains("1234567") && pin.contains("1234")){
+        
+        StringBuilder warnings = new StringBuilder();
+        if(accNoText.getText().isEmpty()){
+          warnings.append("Account Number must not be empty.");
+        }
+        if(pinText.getText().isEmpty()){
+          warnings.append("Pin Number must not be empty.");
+        }
+        if(warnings.length()>0){
+          JOptionPane.showMessageDialog(this, warnings.toString(), "Input Warnings", JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            if(accNo.contains("1234567") && pin.contains("1234")){
             MainPage mp = new MainPage();
             mp.setVisible(true);
         }
@@ -164,6 +176,7 @@ public class LoginPage extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Invalid Login Details", "Login Error", JOptionPane.ERROR_MESSAGE);
             pinText.setText(null);
             accNoText.setText(null);        }
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void pinTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pinTextActionPerformed
