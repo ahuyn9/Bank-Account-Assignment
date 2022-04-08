@@ -159,10 +159,10 @@ public class LoginPage extends javax.swing.JFrame {
         
         StringBuilder warnings = new StringBuilder();
         if(accNoText.getText().isEmpty()){
-          warnings.append("Account Number must not be empty.");
+          warnings.append("Account Number must not be empty.\n");
         }
         if(pinText.getText().isEmpty()){
-          warnings.append("Pin Number must not be empty.");
+          warnings.append("Pin Number must not be empty.\n");
         }
         if(warnings.length()>0){
           JOptionPane.showMessageDialog(this, warnings.toString(), "Input Warnings", JOptionPane.WARNING_MESSAGE);
