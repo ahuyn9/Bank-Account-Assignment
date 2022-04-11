@@ -24,5 +24,9 @@ public class Savings {
         System.out.println("Added Funds" + amount);
         this.savBal += amount;
     }
-    
+    public void removeFunds(double amount){
+      return this.savBal -= amount;
+    }
+        
 }
+
