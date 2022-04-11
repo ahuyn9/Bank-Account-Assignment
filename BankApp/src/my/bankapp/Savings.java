@@ -20,12 +20,13 @@ public class Savings {
         return this.savBal;
     }
     
-    public double addFunds(double amount){
-        return this.savBal += amount;
+    public void addFunds(double amount){
+        System.out.println("Added Funds" + amount);
+        this.savBal += amount;
     }
-    public double removeFunds(double amount){
-        return this.savBal -= amount;
+    public void removeFunds(double amount){
+      return this.savBal -= amount;
     }
-    
+        
 }
 
