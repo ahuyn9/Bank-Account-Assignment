@@ -10,10 +10,10 @@ package my.bankapp;
  */
 public class Savings {
     protected static double savBal = 0;
-    private final double interest = 0.20;
+    private final double interestMonth = 0.00167;
     
     public void addInterest(){
-        this.savBal = (this.savBal * interest) + this.savBal;
+        this.savBal = (this.savBal * interestMonth) + this.savBal;
     }
     
     public void setSavings(double amount){
