@@ -17,10 +17,11 @@ public class Savings {
     }
     
     public double checkBalance(){
-        return savBal;
+        return this.savBal;
     }
     
     public void addFunds(double amount){
+        System.out.println("Added Funds" + amount);
         this.savBal += amount;
     }
     
