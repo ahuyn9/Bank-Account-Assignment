@@ -197,7 +197,7 @@ public class Deposit extends javax.swing.JFrame {
             case "Chequing":
                 amt = cq.addFunds(amount);
                 System.out.println("Chequing");
-                System.out.println(amt);
+                //System.out.println(amt);
                 break;
             case "Savings":
                 sv.addFunds(amount);
@@ -208,6 +208,7 @@ public class Deposit extends javax.swing.JFrame {
         }
         
         //cq.setBalance(amt);
+        System.out.println(cq.checkBalance());
         mp.setTextField(amt);
         //System.out.println(cq.checkBalance());
         

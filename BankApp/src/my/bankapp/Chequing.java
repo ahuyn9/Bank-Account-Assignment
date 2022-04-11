@@ -22,7 +22,7 @@ public class Chequing {
     public double addFunds(double amount){
         System.out.println("Added Funds" + amount);
         this.cheqBal += amount;
-        System.out.println(this.cheqBal);
+        //System.out.println(this.cheqBal);
         return this.cheqBal;
     }
     
