@@ -17,11 +17,15 @@ public class Savings {
     }
     
     public double checkBalance(){
-        return savBal;
+        return this.savBal;
     }
     
-    public void addFunds(double amount){
-        this.savBal += amount;
+    public double addFunds(double amount){
+        return this.savBal += amount;
+    }
+    public double removeFunds(double amount){
+        return this.savBal -= amount;
     }
     
 }
+

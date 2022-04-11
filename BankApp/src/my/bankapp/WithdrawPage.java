@@ -232,6 +232,11 @@ public class WithdrawPage extends javax.swing.JFrame {
         // TODO add your handling code here:
         double amount = Double.parseDouble(jTextField3.getText());
         
+        //check if amount is empty (not working) 
+        if(jTextField3.getText().isEmpty()){
+  JOptionPane.showMessageDialog(null, "Amount must not be empty.", "Empty String Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
         Object sourceAccount = jComboBox1.getSelectedItem();
         if (sourceAccount != null) {
             this.sourceAccStr = sourceAccount.toString();
@@ -240,30 +245,37 @@ public class WithdrawPage extends javax.swing.JFrame {
         if (targetAccount != null) {
             this.targetAccStr = targetAccount.toString();
         }
-        
+
         if(sourceAccStr.contains("Chequing")){
             if(targetAccStr.contains("Savings")){
                 cq.removeFunds(amount);
                 sv.addFunds(amount);
-                MainPage mp = new MainPage();
-                mp.setVisible(true);
+                super.dispose(); 
             }
             else{
-                JOptionPane.showMessageDialog(null, "Invalid Target Account selected.", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Invalid Target Account selected.", "Target Account Error", JOptionPane.ERROR_MESSAGE);
             }
         if(sourceAccStr.contains("Savings")){
             if(targetAccStr.contains("Chequing")){
                 sv.removeFunds(amount);
                 cq.addFunds(amount);
-                MainPage mp = new MainPage();
-                mp.setVisible(true);
+                super.dispose(); 
             }
             else{
-                JOptionPane.showMessageDialog(null, "Invalid Target Account selected.", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Invalid Target Account selected.", "Target Account Error", JOptionPane.ERROR_MESSAGE);
             } 
         }
+        System.out.print("\nChequing Balance: " + cq.checkBalance());
+        System.out.print("\nSavings Balance: " + sv.checkBalance());
+
+        
         }
 
+        /*
+        else if(jTextField3.getText().isEmpty()){
+ /JOptionPane.showMessageDialog(null, "Amount must not be empty.", "Empty String Error", JOptionPane.WARNING_MESSAGE);
+            }
+        */
         
         
     }//GEN-LAST:event_jButton2ActionPerformed
