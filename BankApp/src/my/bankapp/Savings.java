@@ -12,16 +12,16 @@ public class Savings {
     protected double savBal = 0;
     private final double interest = 0.20;
     
-    public double addInterest(){
-        return (savBal * interest) + savBal;
+    public void addInterest(){
+        this.savBal = (this.savBal * interest) + this.savBal;
     }
     
     public double checkBalance(){
         return savBal;
     }
     
-    public double addFunds(double amount){
-        return savBal + amount;
+    public void addFunds(double amount){
+        this.savBal += amount;
     }
     
 }

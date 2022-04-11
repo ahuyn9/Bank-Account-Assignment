@@ -11,6 +11,7 @@ package my.bankapp;
 public class Deposit extends javax.swing.JFrame {
     Chequing cq = new Chequing();
     Savings sv = new Savings();
+    MainPage mp = new MainPage();
     
     private String selectedAccStr;
     /**
@@ -185,6 +186,7 @@ public class Deposit extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         double amount = Double.parseDouble(jTextField2.getText());
+        double amt = 0;
         
         Object selectedAccount = jComboBox1.getSelectedItem();
         if(selectedAccount != null){
@@ -193,7 +195,9 @@ public class Deposit extends javax.swing.JFrame {
         
         switch (selectedAccStr){
             case "Chequing":
-                cq.addFunds(amount);
+                amt = cq.addFunds(amount);
+                System.out.println("Chequing");
+                //System.out.println(amt);
                 break;
             case "Savings":
                 sv.addFunds(amount);
@@ -202,6 +206,12 @@ public class Deposit extends javax.swing.JFrame {
                 System.out.println("Invalid Account Selected");
                 break;
         }
+        
+        //cq.setBalance(amt);
+        System.out.println(cq.checkBalance());
+        mp.setTextField(amt);
+        //System.out.println(cq.checkBalance());
+        
         
         super.dispose(); 
     }//GEN-LAST:event_jButton1ActionPerformed
