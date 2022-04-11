@@ -170,6 +170,7 @@ public class LoginPage extends javax.swing.JFrame {
         else{
             if(accNo.contains("1234567") && pin.contains("1234")){
             MainPage mp = new MainPage();
+            Chequing cq = new Chequing();
             mp.setVisible(true);
         }
         else{
