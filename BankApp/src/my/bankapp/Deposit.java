@@ -195,22 +195,19 @@ public class Deposit extends javax.swing.JFrame {
         
         switch (selectedAccStr){
             case "Chequing":
-                amt = cq.addFunds(amount);
+                cq.addFunds(amount);
                 System.out.println("Chequing");
                 //System.out.println(amt);
                 break;
             case "Savings":
                 sv.addFunds(amount);
+                System.out.println("Savings");
                 break;
             default:
                 System.out.println("Invalid Account Selected");
                 break;
         }
-        
-        //cq.setBalance(amt);
-        System.out.println(cq.checkBalance());
-        mp.setTextField(amt);
-        //System.out.println(cq.checkBalance());
+  
         
         
         super.dispose(); 
