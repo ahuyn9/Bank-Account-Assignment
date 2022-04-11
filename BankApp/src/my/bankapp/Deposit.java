@@ -4,6 +4,8 @@
  */
 package my.bankapp;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author mdoan3
@@ -40,7 +42,7 @@ public class Deposit extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         jTextField1.setText("jTextField1");
 
@@ -64,7 +66,7 @@ public class Deposit extends javax.swing.JFrame {
 
         jLabel2.setText("Select Target:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chequing", "Savings", " " }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chequing", "Savings" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -131,7 +133,12 @@ public class Deposit extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("DEPOSIT");
 
-        jButton2.setText("Back");
+        jButton3.setText("Back");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -140,8 +147,8 @@ public class Deposit extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton2)
-                        .addGap(78, 78, 78)
+                        .addComponent(jButton3)
+                        .addGap(75, 75, 75)
                         .addComponent(jLabel1))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
@@ -155,7 +162,7 @@ public class Deposit extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton2))
+                    .addComponent(jButton3))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(57, Short.MAX_VALUE))
@@ -185,32 +192,35 @@ public class Deposit extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        double amount = Double.parseDouble(jTextField2.getText());
-        double amt = 0;
-        
-        Object selectedAccount = jComboBox1.getSelectedItem();
-        if(selectedAccount != null){
-            this.selectedAccStr = selectedAccount.toString();
+        if(jTextField2.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Amount must not be empty.", "Empty String Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            double amount = Double.parseDouble(jTextField2.getText());
+
+            Object selectedAccount = jComboBox1.getSelectedItem();
+            if(selectedAccount != null){
+                this.selectedAccStr = selectedAccount.toString();
+            }
+
+            switch (selectedAccStr){
+                case "Chequing":
+                    cq.addFunds(amount);
+                    //System.out.println(amt);
+                    break;
+                case "Savings":
+                    sv.addFunds(amount);
+
+                    break;
+                default:
+                    System.out.println("Invalid Account Selected");
+                    break;
+            }
+
+            System.out.println("New Chequing Balance: " + cq.checkBalance());
+            System.out.println("New Savings Balance: " + sv.checkBalance());
+
+            super.dispose(); 
         }
-        
-        switch (selectedAccStr){
-            case "Chequing":
-                cq.addFunds(amount);
-                System.out.println("New Chequing Balance: " + amount);
-                //System.out.println(amt);
-                break;
-            case "Savings":
-                sv.addFunds(amount);
-                System.out.println("New Savings Balance: " + amount);
-                break;
-            default:
-                System.out.println("Invalid Account Selected");
-                break;
-        }
-  
-        
-        
-        super.dispose(); 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
@@ -219,8 +229,12 @@ public class Deposit extends javax.swing.JFrame {
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
-       
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        super.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -262,7 +276,7 @@ public class Deposit extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

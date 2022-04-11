@@ -151,6 +151,11 @@ public class WithdrawPage extends javax.swing.JFrame {
         );
 
         jButton3.setText("Back");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -247,44 +252,43 @@ public class WithdrawPage extends javax.swing.JFrame {
                 this.targetAccStr = targetAccount.toString();
             }
 
-        if(sourceAccStr.contains("Chequing")){
-            if(targetAccStr.contains("Savings")){
-                cq.removeFunds(amount);
-                sv.addFunds(amount);
-                super.dispose(); 
+            if(sourceAccStr.contains("Chequing")){
+                if(targetAccStr.contains("Savings")){
+                    cq.removeFunds(amount);
+                    sv.addFunds(amount);
+                    super.dispose(); 
+                } else {
+                    JOptionPane.showMessageDialog(null, "Invalid Target Account selected.", "Target Account Error", JOptionPane.ERROR_MESSAGE);
+                }
             }
-            else{
-                JOptionPane.showMessageDialog(null, "Invalid Target Account selected.", "Target Account Error", JOptionPane.ERROR_MESSAGE);
+            
+            if(sourceAccStr.contains("Savings")){
+                if(targetAccStr.contains("Chequing")){
+                    sv.removeFunds(amount);
+                    cq.addFunds(amount);
+                    super.dispose(); 
+                } else {
+                    JOptionPane.showMessageDialog(null, "Invalid Target Account selected.", "Target Account Error", JOptionPane.ERROR_MESSAGE);
+                } 
             }
-        if(sourceAccStr.contains("Savings")){
-            if(targetAccStr.contains("Chequing")){
-                sv.removeFunds(amount);
-                cq.addFunds(amount);
-                super.dispose(); 
-            }
-            else{
-                JOptionPane.showMessageDialog(null, "Invalid Target Account selected.", "Target Account Error", JOptionPane.ERROR_MESSAGE);
-            } 
-        }
-        System.out.println("Chequing Balance: " + cq.checkBalance());
-        System.out.println("Savings Balance: " + sv.checkBalance());
+            System.out.println("Chequing Balance: " + cq.checkBalance());
+            System.out.println("Savings Balance: " + sv.checkBalance());
 
-        
+
+                
             }
-        }
         //check if amount is empty (not working) 
-        
-        
-        
-
         /*
         else if(jTextField3.getText().isEmpty()){
  /JOptionPane.showMessageDialog(null, "Amount must not be empty.", "Empty String Error", JOptionPane.WARNING_MESSAGE);
             }
-        */ 
-        
-        
+        */     
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        super.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
