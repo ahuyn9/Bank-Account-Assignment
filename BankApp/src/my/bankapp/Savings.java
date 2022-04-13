@@ -13,7 +13,12 @@ public class Savings {
     private final double interestMonth = 0.00167;
     
     public void addInterest(){
-        this.savBal = (this.savBal * interestMonth) + this.savBal;
+        //this.savBal = (this.savBal * interestMonth) + this.savBal;
+        System.out.println("Interest Added to Savings");
+        double newBal = checkBalance();
+        newBal = (newBal * interestMonth) + newBal;
+        setSavings(newBal);
+        System.out.println("New Savings Balance: " + String.format("%.2f", checkBalance()));
     }
     
     public void setSavings(double amount){
